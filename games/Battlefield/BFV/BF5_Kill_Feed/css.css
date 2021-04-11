@@ -1,0 +1,117 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+  color: {{fontColor}};
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.feed__item {
+  display: grid;
+  grid-template-columns: {{alignIcons}} .5fr 1fr;
+  grid-template-areas: 
+  "{{textOrder}}";
+  align-items: center;
+  margin-bottom: 2.5px;
+}
+
+.follower {
+  grid-area: follower;
+  justify-self: flex-start;
+  font-weight: bold;
+  color: {{followerTextColor}};
+  background: {{followerBackgroundColor}};
+  padding: 2px 5px;
+}
+
+.icon {
+  grid-area: icon;
+  justify-self: center;
+  filter: drop-shadow(0 0 1px {{iconShadowColor}});
+  width: 20px;
+  height: 20px;
+}
+
+.broadcaster {
+  grid-area: broadcaster;
+  justify-self: flex-end;
+  text-transform: capitalize;
+  font-weight: bold;
+  text-shadow: 0 0 2px {{broadcasterShadowColor}}; 
+}
+
+.fadeOutClass{
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+}
+
+.fadeInClass {
+	animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes pop-in {
+    0% {
+        width: 0px;
+        height: 0px;
+        background-size: 0px 0px;
+        margin-top: 23px;
+        margin-left: 24px;
+    }
+    50% {
+        width: 0px;
+        height: 0px;
+        background-size: 0px 0px;
+        margin-top: 12px;
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-bottom: 12px
+    }
+    85% {
+        width: 23px;
+        height: 23px;
+        background-size: 23px 23px;
+        margin-top: 1px;
+        margin-left: 2px;
+        margin-right: 0px;
+        margin-bottom: 0px
+    }
+    100% {
+        width: 21px;
+        height: 21px;
+        background-size: 21px 21px;
+        margin-top: 2px;
+        margin-left: 3px;
+    }
+}
