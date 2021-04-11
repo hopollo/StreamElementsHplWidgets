@@ -1,0 +1,69 @@
+{
+  "eventsLimit": {
+    "type": "number",
+    "label": "Limit displayed events to:",
+    "value": 5
+  },
+  "eventMarginBottom": {
+    "type": "number",
+    "label": "Item margin bottom: (in px)",
+    "value": 2.5
+  },
+  "alignIcons": {
+    "type": "dropdown",
+    "label": "Align icons in same column:",
+    "value": "2fr",
+    "options": {
+      "2fr": "Yes",
+      "auto": "No"
+    }
+  },
+  "direction": {
+    "type": "dropdown",
+    "label": "Events direction:",
+    "value": "desc",
+    "options": {
+      "desc": "Desc",
+      "asc": "Asc"
+    }
+  },
+  "textOrder":{
+    "type": "dropdown",
+    "label": "Text order:",
+    "value": "follower icon broadcaster",
+    "options": {
+      "follower icon broadcaster": "Name first",
+      "broadcaster icon follower": "Broadcaster first"
+    }
+  },
+  "fadeDuration": {
+    "type": "number",
+    "label": "Fade animation duration (in seconds):",
+    "value": 2
+  },
+  "fadeoutTime": {
+    "type": "number",
+    "label": "Fadeout after (in seconds), 0 to disable:",
+    "value": 5
+  },
+  "followerTextColor": {
+    "type": "colorpicker",
+    "label": "Follower Text color",
+    "value": "rgb(0, 0, 0)"
+  },
+  "followerBackgroundColor": {
+    "type": "colorpicker",
+    "label": "Follower Background color",
+    "value": "rgb(255, 255, 255)"
+  },
+  "iconShadowColor": {
+    "type": "colorpicker",
+    "label": "Icon Shadow Color",
+    "value": "rgba(255, 0, 0, 0.4)"
+  },
+  "broadcasterShadowColor": {
+    "type": "colorpicker",
+    "label": "Broadcaster Name Shadow Color",
+    "value": "rgba(0, 0, 0, 0.8)"
+  }
+}
