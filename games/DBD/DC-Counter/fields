@@ -1,0 +1,114 @@
+{
+  "iconUrl": {
+    "type": "image-input",
+    "label": "Counter's icon"
+  },
+  "iconSize": {
+    "type": "number",
+    "label": "Icon size (px) :",
+    "value": 100,
+    "steps": 1
+  },
+  "textSize": {
+    "type": "number",
+    "label": "Text size (px) :",
+    "value": 45,
+    "steps": 1
+  },
+  "resetCommand": {
+    "type": "text",
+    "label": "Chat command to RESET DC count :",
+    "value": "!resetdc"
+  },
+  "allowModsToReset": {
+    "type": "dropdown",
+    "label": "Mods can reset it ?",
+    "value": "no",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "addCommand": {
+    "type": "text",
+    "label": "Chat command to INSCREASE DC count :",
+    "value": "!dc"
+  },
+  "allowModsToAdd": {
+    "type": "dropdown",
+    "label": "Mods can use it ?",
+    "value": "yes",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "allowSubsToAdd": {
+    "type": "dropdown",
+    "label": "Subs can use it ?",
+    "value": "no",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "allowVipsToAdd": {
+    "type": "dropdown",
+    "label": "VIPs can use it ?",
+    "value": "no",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "allowFollowersToAdd": {
+    "type": "dropdown",
+    "label": "Followers can use it ?",
+    "value": "no",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "substractCommand": {
+    "type": "text",
+    "label": "Chat command to DECREASE DC count :",
+    "value": "!substractdc"
+  },
+  "allowModsToSubsctract": {
+    "type": "dropdown",
+    "label": "Mods can use it ?",
+    "value": "yes",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "allowSubsToSubsctract": {
+    "type": "dropdown",
+    "label": "Subs can use it ?",
+    "value": "no",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "allowVipsToSubsctract": {
+    "type": "dropdown",
+    "label": "VIPs can use it ?",
+    "value": "no",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "allowFollowersToSubsctract": {
+    "type": "dropdown",
+    "label": "Followers can use it ?",
+    "value": "no",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  }
+}
