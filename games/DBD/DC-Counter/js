@@ -1,0 +1,49 @@
+let dcCount = 0;
+
+window.addEventListener('onEventReceived', (obj) => {
+    if (!obj.detail.event) return;
+  
+    const listener = obj.detail.listener.split("-")[0];
+    const event = obj.detail.event;
+  
+  	if (listener !== "message") return;
+  
+  	switch (event.renderedText) {
+      case "{{addCommand}}":
+        checkPermissions(event.data, 'add');
+        break;
+      case "{{substractCommand}}":
+        checkPermissions(event.data, 'sub');
+        break;
+      case "{{resetCommand}}":
+        checkPermissions(event.data, 'reset');
+        break;
+      default:
+        return false;
+    }
+});
+
+window.addEventListener('onWidgetLoad', (obj) => {
+   $('#dcCounter').text(dcCount);
+});
+
+function checkPermissions(user, setting) {
+  switch (setting) {
+    case 'add':
+      if (user.badges.find(b => b.type !== "broadcaster")) return;
+      dcCount++;
+      break;
+    case 'sub':
+      if (user.badges.find(b => b.type !== "broadcaster")) return;
+      dcCount !== 0 && dcCount--;
+      break;
+    case 'reset':
+      if (user.badges.find(b => b.type !== "broadcaster")) return;
+      dcCount = 0;
+      break;
+    default:
+      return;
+  }
+  
+  $('#dcCounter').text(dcCount);
+}
