@@ -1,0 +1,6 @@
+<div class="main-container">
+  <div id="counter-container">
+    <img src="{{iconUrl}}" width="{{iconSize}}" height="{{iconSize}}" alt="DC :"/>
+    <h1 id="dcCounter">0</h1>
+  </div>
+</div>
