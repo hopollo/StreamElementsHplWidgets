@@ -1,14 +1,14 @@
 * {
-    font-family: 'Montserrat', sans-serif;
-    color: {{fontColor}};
-    font-size: 14px;
-    overflow: hidden;
-  	padding: 0;
-  	margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: {{fontColor}};
+  font-size: 14px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 
 .main-container {
-  display: grid;
+  display: none;
   place-items: center;
   width: 100%;
   height: 100%;
