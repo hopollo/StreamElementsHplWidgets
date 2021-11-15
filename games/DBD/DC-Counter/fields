@@ -1,4 +1,13 @@
 {
+  "dynamicHide": {
+    "label": "Hides auto when not playing DBD ?",
+    "type": "dropdown",
+    "value": "true",
+    "options": {
+      "true": "Yes",
+      "false": "No"
+    }
+  },
   "iconUrl": {
     "type": "image-input",
     "label": "Counter's icon"
