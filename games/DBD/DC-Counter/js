@@ -1,4 +1,10 @@
+let channel = "";
 let dcCount = 0;
+const debug = true;
+const demo = true;
+const autoHide = ("{{dynamicHide}}" === 'true');
+$('#dcCounter').text(dcCount);
+
 
 window.addEventListener('onEventReceived', (obj) => {
     if (!obj.detail.event) return;
@@ -8,6 +14,7 @@ window.addEventListener('onEventReceived', (obj) => {
   
   	if (listener !== "message") return;
   
+  	// Logic depending on the keyword in chat
   	switch (event.renderedText) {
       case "{{addCommand}}":
         checkPermissions(event.data, 'add');
@@ -23,22 +30,50 @@ window.addEventListener('onEventReceived', (obj) => {
     }
 });
 
-window.addEventListener('onWidgetLoad', (obj) => {
-   $('#dcCounter').text(dcCount);
+window.addEventListener('onWidgetLoad', async (obj) => {
+  // Enfer the owner (channel) of the overlay for future fetch requests
+  channel = obj.detail.channel.username;
+  
+  // First fires request before looping
+  autoHide && await checkCurrentGame();
+  
+  autoHide && setInterval(() => checkCurrentGame(), 60 * 1000);
+  
+  !autoHide && $('.main-container').css('display', 'grid');
 });
+
+async function checkCurrentGame() {
+  try {
+    debug && console.log('Checking current game...');
+    
+  	const res = await fetch(`https://decapi.me/twitch/game/${channel}`);
+    const data = await res.text();
+    
+    debug && console.log('Current game :', data);
+    
+    // Depending on the settings and request results show or not the counter
+    if (autoHide && (data === "Dead by Daylight")  || !autoHide) {
+      $('.main-container').css('display', 'grid');
+    } else {
+      $('.main-container').css('display', 'none');
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 function checkPermissions(user, setting) {
   switch (setting) {
     case 'add':
-      if (user.badges.find(b => b.type !== "broadcaster")) return;
+      if (demo && user.badges.find(b => b.type !== "broadcaster")) return;
       dcCount++;
       break;
     case 'sub':
-      if (user.badges.find(b => b.type !== "broadcaster")) return;
+      if (demo && user.badges.find(b => b.type !== "broadcaster")) return;
       dcCount !== 0 && dcCount--;
       break;
     case 'reset':
-      if (user.badges.find(b => b.type !== "broadcaster")) return;
+      if (demo && user.badges.find(b => b.type !== "broadcaster")) return;
       dcCount = 0;
       break;
     default:
