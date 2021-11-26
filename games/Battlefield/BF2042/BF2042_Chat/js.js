@@ -1,4 +1,4 @@
-const debug = true;
+const debug = false;
 const coupleMessages = true;
 let lastMsg;
 let channelName = "";
@@ -31,7 +31,11 @@ async function getCurrentGame() {
     const fetchedGame = await fetch(`https://decapi.me/twitch/game/${channelName}`).then(res => res.text());
 	if (debug) console.log('recents', fetchedGame);
     
-    (fetchedGame === 'Battlefield 2042') ? $('.main-container').css('display', 'block') : $('.main-container').css('display', 'none');
+    if (fetchedGame === 'Battlefield 2042') {
+      $('.main-container').css('display', 'block');
+    } else {
+      $('.main-container').css('display', 'none');
+    }
   } catch (error) { console.error(error); }
 }
 
@@ -43,7 +47,7 @@ async function createMessage(e) {
   if (debug) console.log(e);
   const evt = e.event.data;
 
-  const banned = ['streamelements', 'djungbot', 'wizebot'];
+  const banned = ['streamelements', 'wizebot'];
   const alt = evt.nick;
 
   if (banned.includes(evt.nick)) return;
@@ -52,8 +56,6 @@ async function createMessage(e) {
   const color = evt.displayColor;
   const name = evt.displayName;
   const msgId = evt.msgId;
-  
-  if (userId == '26069167') extra = 'creator';
   
   const text = e.event.renderedText;
 
@@ -65,13 +67,14 @@ async function createMessage(e) {
     $('li:last-child .messageUl').append(supp);
   } else {
     const item = `
-    <li class="bubble ${extra} ${userId}">
-        <div class="name">${name + ': '}</div>
-        <ul class="messageUl">
-            <li class="message">${text}</li>
-        </ul>
-	  </div>
-    </li>`;
+      <li class="bubble ${userId}">
+          <div class="name">${name + ': '}</div>
+          <ul class="messageUl">
+              <li class="message">${text}</li>
+          </ul>
+        </div>
+      </li>`;
+    
     $('.messages').append(item);
   }
 
