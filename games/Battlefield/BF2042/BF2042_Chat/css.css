@@ -19,17 +19,11 @@ ul {
   font-weigth: 400;
 }
 
-.special .message {
-  position: relative;
-  color: white;
-  background:linear-gradient(202deg, #fc8cbc, #2cd2fa);
-}
-
 .name {
   padding-left: 5px;
   align-slef: center;
   color: #32b4a1;
-  font-weight: bold;
+  font-weight: 800;
   font-size: 15px;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.6);
   flex-shrink: 0;
@@ -51,11 +45,12 @@ ul {
   padding-left: 5px;
   color: #32b4a1;
   word-wrap: break-word;
+  font-weight: 600;
 }
 
 .bubble {
   display: flex;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   margin-top: 1px;
 }
 
