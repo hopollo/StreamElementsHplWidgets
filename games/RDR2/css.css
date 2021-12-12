@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: 'Open Sans', sans-serif;
+  font-weigth: 400;
+  margin: 5px;
+}
+
+li {
+  display: flex;
+  margin: 2px 0;
+}
+
+.bubble {
+  display: flex;
+  background: black;
+  padding: 2px;
+  margin: 1px 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.message {
+  position: relative;
+  margin-left: 5px;
+  font-size: .9375rem;
+  line-height: 1.4;
+  color: white;
+  overflow: hidden;
+  width: 250px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bubble::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: -10px;
+  background: url('https://www.onlygfx.com/wp-content/uploads/2017/12/grunge-circle-dot-2.png') no-repeat;
+  background-size: 35px 35px;
+  background-position: 0px -8px;
+}
+
+.bubble::after {
+  content: "";
+  height: 100%;
+  width: 30px;
+  position: absolute;
+  background: orange;
+  z-index: -1;
+  bottom: 0;
+  right: -10px;
+  background: url('https://www.onlygfx.com/wp-content/uploads/2017/12/grunge-circle-dot-2.png') no-repeat;
+  background-size: 30px 30px;
+  background-position: 0px -5px;
+}
+
+.name {
+  flex-shrink: 0;
+  color: gray;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.message {
+  font-weight: bold;
+}
+
+.purge {
+  -webkit-animation: fadeOutUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: fadeOutUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+li {
+  -webkit-animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+}
