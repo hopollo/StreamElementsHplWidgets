@@ -1,0 +1,22 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    color: red;
+    font-size: 14px;
+    overflow: hidden;
+  	font-weight: bold;
+}
+
+body {
+ 	display: grid;
+  	place-items: center;
+}
+
+.main-container {
+ 	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+svg {
+  	fill: red;
+}
