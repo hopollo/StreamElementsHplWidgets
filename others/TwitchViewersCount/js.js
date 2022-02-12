@@ -11,7 +11,9 @@ async function fetchViewers() {
   const res = await fetch(`https://decapi.me/twitch/viewercount/${channelName}`);
   const data = await res.text();
   
-  const viewersCount = Math.round(data) >= 1000 ? `${data.substring(0, 3)}K viewers` : `${Math.round(data)} viewers`;
+  let viewersCount = "Offline";
+  
+  !data.includes('offline') && Math.round(data) >= 1000 ? `${data.substring(0, 3)}K viewers` : `${data} viewers`;
   	
   $('.main-container span').text(viewersCount);
 }
