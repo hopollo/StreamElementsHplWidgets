@@ -7,13 +7,23 @@ window.addEventListener('onWidgetLoad', async (obj) => {
   	setInterval(() => fetchViewers(), 60000);
 });
 
+function kFormatter(num) {
+  return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
+}
+
 async function fetchViewers() {
   const res = await fetch(`https://decapi.me/twitch/viewercount/${channelName}`);
   const data = await res.text();
   
-  let viewersCount = "Offline";
+  let viewersCount = null;
   
-  !data.includes('offline') && Math.round(data) >= 1000 ? `${data.substring(0, 3)}K viewers` : `${data} viewers`;
-  	
+  if (data.includes('offline')) {
+    viewersCount = 'Offline';
+  } else {
+  	viewersCount = `${kFormatter(data)} viewers`;
+  }
+  
   $('.main-container span').text(viewersCount);
 }
+
+
