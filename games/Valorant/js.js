@@ -30,7 +30,7 @@ async function checkValorantRank() {
   
   if (!data) return false;
   
-  $('#elo').text(data.elo !== null ? data.elo : "...");
+  $('#elo').text(data.elo !== null ? data.elo + "RR" : "...");
   $('#ranking_in_tier').text(data.ranking_in_tier !== null ? data.ranking_in_tier : "");
   $('#statsIMG').attr('src', data.images.large);
 }
