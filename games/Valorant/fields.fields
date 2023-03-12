@@ -1,0 +1,12 @@
+{
+ "name": {
+    "type": "text",
+    "label": "Name",
+    "value": "MyValorantName"
+  },
+  "tag": {
+    "type": "text",
+    "label": "Tag (without #)",
+    "value": "0000"
+  }
+}
