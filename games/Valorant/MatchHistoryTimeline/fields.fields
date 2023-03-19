@@ -1,0 +1,25 @@
+{
+ "name": {
+    "type": "text",
+    "label": "Name",
+    "value": "MyValorantName"
+  },
+  "tag": {
+    "type": "text",
+    "label": "Tag (without #)",
+    "value": "0000"
+  },
+  "matchFilter": {
+    "type": "dropdown",
+    "label": "Choose an option:",
+    "value": "competitive",
+    "options": {
+      "competitive": "competitive",
+      "escalation": "escalation", 
+      "spikerush": "spikerush",
+      "deathmatch": "deathmatch",
+      "unrated": "unrated",
+      "replication": "replication"
+    }
+  }
+}
